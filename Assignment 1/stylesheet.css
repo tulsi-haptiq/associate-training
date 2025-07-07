@@ -17,7 +17,8 @@ a {
  .container-header{
   display: flex;
   margin: 0 auto;
-  max-width: 972px;
+  max-width: 972px; 
+  /* width 1300px always */
   align-items: center;
   justify-content: space-between;
   /* border: 2px solid black; */
@@ -66,7 +67,7 @@ a {
   color: white;
   height: 40px;
   padding: 10px 10px 10px 10px;
-  border-radius: 100px;
+  border-radius:100px;
 }
 
 .main-container,
