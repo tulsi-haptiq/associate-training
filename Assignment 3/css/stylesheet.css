@@ -55,7 +55,10 @@ li {
   color: rgba(255, 255, 255, 1);
   padding: 10px 20px;
 }
-
+.navLinks .active {
+   border: 1px solid white;
+  border-radius: 100px;
+}
 .navLinks a:hover {
   border: 1px solid white;
   border-radius: 100px;
@@ -68,7 +71,7 @@ li {
     background-position: 0;
     background-size: cover;
     height: 100vh;
-    margin-top: -102.4px;
+    margin-top: -109.4px;
 }
 .innerBanner{
     display: flex;
@@ -80,10 +83,8 @@ li {
 }
 .innerBanner h1 {
   font-weight: 700;
-  font-style: Bold;
   font-size: 72px;
   line-height: 140%;
-  letter-spacing: 0%;
   text-align: center;
   margin-bottom: 32px;
   color: #ffffff;
@@ -98,7 +99,7 @@ li {
   text-align: center;
   margin-bottom: 64px;
   color: #ffffff;
-  white-space: pre;
+  /* white-space: pre; */
 }
 
 .innerBanner a {
@@ -244,17 +245,14 @@ color:#222831;
 margin-bottom: 16px;
 }
 
-.featureImg {
+.featureImg1 {
     width: 475px;
     height:400px;
     overflow: hidden;
-    box-shadow: 32px 32px 0 0 #6C00FF;
+    box-shadow: 32px 32px 0  #6C00FF;
     margin-bottom: 128px;
 }
 
-/* .featureCards .reverse img{
-    box-shadow: -32px -32px 0 0 #6C00FF;
-} */
 
 .featureCards.reverse {
   flex-direction: row-reverse;
