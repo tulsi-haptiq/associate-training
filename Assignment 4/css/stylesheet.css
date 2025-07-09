@@ -323,6 +323,7 @@ li {
 .taxHeading {
   text-align: center;
   color: #fff;
+  margin-bottom: 96px;
 }
 
 .taxHeading h2 {
@@ -354,11 +355,11 @@ li {
 
 .blogCard {
   position: relative;
-  margin-bottom: 112px;
+  /* margin-bottom: 112px; */
 }
 
 .blogImgWrapper {
-  width: 331px;
+ max-width: 331px;
   height: 452px;
   overflow: hidden;
 }
