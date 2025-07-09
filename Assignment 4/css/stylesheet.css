@@ -54,6 +54,11 @@ li {
   justify-content: space-between;
 }
 
+.btnMember a img{
+  width: 12px;
+  height: 10px;
+  /* padding-right: 4px; */
+}
 .collapseNavbar ul {
   display: flex;
   gap: 21px;
@@ -370,7 +375,7 @@ li {
   padding: 17.5px 20px;
   left: 0px;
   bottom: 0px;
-background: #000000;
+  background: #000000;
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
