@@ -185,9 +185,10 @@ text-align: right;
   margin-bottom: 55px;
 }
 
-.partnerImgs {
+img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 .btnLearnMore {
@@ -228,9 +229,10 @@ text-align: right;
   margin-bottom: 16px;
 }
 
-.msgImg {
-  width: 600px;
-  height: 432px;
+.msgImg img{
+  max-width: 600px;
+  max-height: 432px;
+  object-fit: contain;
 }
 
 .reverse {
