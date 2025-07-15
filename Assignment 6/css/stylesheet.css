@@ -1,5 +1,5 @@
 * {
-  /* font-family: "Crimson", sans-serif; */
+  font-family: "Crimson", sans-serif;
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
@@ -45,8 +45,8 @@ li {
   gap: 18px;
 }
 .logoImg {
-  width: 70px;
-  height: 49px;
+  max-width: 70px;
+  max-height: 49px;
   overflow: hidden;
 }
 .logo a {
@@ -133,8 +133,8 @@ text-align: right;
 }
 
 .heroImg {
-  height: 379px;
-  width: 645px;
+  max-height: 379px;
+  max-width: 645px;
 }
 
 /* section 2 Partners */
@@ -185,10 +185,14 @@ text-align: right;
   margin-bottom: 55px;
 }
 
-img {
+.partnerImgs{
+  max-width: 210px;
+  max-height: 50px;
+}
+.partnerImgs img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .btnLearnMore {
