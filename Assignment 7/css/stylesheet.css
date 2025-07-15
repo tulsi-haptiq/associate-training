@@ -1,0 +1,49 @@
+* {
+  font-family: "Work Sans", sans-serif;
+  line-height: 1.25;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+h3{
+    font-family: "Crimson Text",sans-serif;
+}
+h1{
+    font-family: "Crimson Text",sans-serif;
+}
+
+/* header */
+.letterSpacing{
+    letter-spacing: 5px;
+}
+.bgGreen{
+    background-color: #74C69D;
+    
+}
+.greenText{
+    color:#74C69D;
+}
+
+.paraColor{
+    color:#212529;
+}
+
+.heroImg{
+    max-width: 645px;
+    max-height: 379px;
+}
+
+.partnerImgs{
+    max-width: 210px;
+    max-height: 50px;
+}
+
+
+
+.profileImgs{
+    width: 175px;
+    height: 175px;
+}
