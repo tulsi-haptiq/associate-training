@@ -1,7 +1,0 @@
-1. never give height to any attribute other than img(Ht,wt).
-2.camel case =class name
-3. border radius
-4. sign login btn doubt
-header //new
-container class always same
-border radius to make circle img
