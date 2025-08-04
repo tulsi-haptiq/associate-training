@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+*{
+
+  font-family: "Noto Sans";
+}
+
+img{
+  height: 100%;
+  width:  100%;
+  object-fit: fill;
+}
