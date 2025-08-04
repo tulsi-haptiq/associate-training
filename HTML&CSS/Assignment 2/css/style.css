@@ -1,0 +1,295 @@
+* {
+  font-family: "Heebo", sans-serif;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* nav bar */
+.headerClass {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.logo a {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgba(33, 36, 61, 1);
+}
+
+.navLinks {
+  align-self: flex-end;
+  display: flex;
+  gap: 50px;
+  list-style-type: none;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: right;
+}
+
+.navLinks a {
+  color: rgba(33, 36, 61, 1);
+}
+
+/* hero section  */
+.section1 {
+  display: flex;
+  padding: 40px 0px;
+}
+.hero {
+  flex: 1;
+  background-color: white;
+  align-items: center;
+}
+
+.hero h1 {
+  width: 80%;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 60px;
+  letter-spacing: 0px;
+  color: rgba(33, 36, 61, 1);
+  margin-bottom: 40px;
+}
+
+.hero p {
+  width: 80%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  margin-bottom: 40px;
+}
+
+.heroBtn a{
+  /* width: 208px; */
+  border-radius: 2px;
+  border: 1px solid black;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 100, 100, 1);
+  text-align: center;
+
+  padding: 15px 30px;
+}
+
+.heroBtn{
+    margin-bottom: 30px;
+}
+.heroImg {
+  width: 243px;
+  height: 243px;
+}
+
+/* section 2 */
+
+.section2 {
+  width: 100%;
+  background: rgba(237, 247, 250, 1);
+}
+
+.section2Links {
+  display: flex;
+  gap: 600px;
+  justify-content: space-between;
+  padding: 0px 40px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.recentLink {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 60px;
+  letter-spacing: 0px;
+  vertical-align: bottom;
+}
+.recentLink a {
+  color: rgba(33, 36, 61, 1);
+}
+
+.viewLink {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+.viewLink a {
+  color: rgba(0, 168, 204, 1);
+}
+
+/* cards */
+.sectionCards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.cardRecentPost {
+  width: 50%;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 1);
+  margin: 0px 40px;
+  text-align: left;
+  padding: 20px 40px;
+  color: rgba(33, 36, 61, 1);
+  margin-bottom: 50px;
+}
+
+.cardRecentPost h4 {
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0px;
+  margin-bottom: 20px;
+}
+
+.cardDetails {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.cardRecentPost p {
+  width: 80%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+
+/* section 3 */
+
+.section3 {
+  flex: 0.7;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section3 h4 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 60px;
+  letter-spacing: 0px;
+}
+.featuredSection {
+  display: flex;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 60px;
+  letter-spacing: 0px;
+}
+
+/* card 1 */
+.featuredCards {
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid rgba(224, 224, 224, 1);
+  padding: 15px 10px;
+}
+
+.cardImg img {
+  width: 246px;
+  height: 180px;
+  border-radius: 6px;
+}
+
+.cardInfo h4 {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  margin-bottom: 20px;
+}
+
+.cardYrThing {
+  display: flex;
+  gap: 50px;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cardYear {
+  color: white;
+  background-color: rgba(20, 40, 80, 1);
+  font-weight: 900;
+  font-size: 18px;
+  padding: 0px 20px;
+  border-radius: 100px;
+}
+
+.cardThing {
+  color: rgba(134, 149, 164, 1);
+  font-family: Heebo;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0px;
+}
+
+.cardInfo p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0px;
+  line-height: 25px;
+  color: rgba(33, 36, 61, 1);
+}
+
+/* footer */
+.footerInfo {
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 70px 0px;
+  text-align: center;
+}
+
+.footerIcon {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  margin: 0 auto;
+}
+.iconList ul {
+  display: flex;
+  gap: 30px;
+}
+
+.footerIcon li {
+  font-size: 30px;
+  list-style: none;
+}
+
+ul a {
+  text-decoration: none;
+  color: black;
+}
+
+ul a:hover {
+  color: rgba(255, 100, 100, 1);
+}
+.footerCopyright {
+  padding: 10px;
+}
