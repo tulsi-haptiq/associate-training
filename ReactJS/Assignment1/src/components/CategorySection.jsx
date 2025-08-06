@@ -1,20 +1,17 @@
-import React from 'react'
+import React from 'react';
 import { categoryInfo } from '../utils/categoryInfo';
 import CategoryComponent from './CategoryComponent';
- 
-export default function CategorySection(){
-   
+import ShadowBtn from './ShadowBtn';
 
-    return(
-       <div className="container mx-auto max-w-7xl ">
-               <h3 className="w-fit mx-auto text-white text-2xl font-semibold text-center mb-[50px] px-6 py-2 rounded-full shadow-lg shadow-fuchsia-600">
-                 Shop by Categories
-               </h3>
-               <div className="flex flex-row gap-0">
-                 {categoryInfo?.map((info, idx) => (
-                    <CategoryComponent key={idx} data={info}/>
-                 ))}
-               </div>
-             </div>
-    );
+export default function CategorySection() {
+  return (
+    <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <ShadowBtn title="Shop by Categories" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {categoryInfo?.map((info, idx) => (
+          <CategoryComponent key={idx} data={info} />
+        ))}
+      </div>
+    </div>
+  );
 }

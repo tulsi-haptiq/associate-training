@@ -1,17 +1,16 @@
 import React from "react";
 import { featuresInfo } from "../utils/featuresInfo";
 import FeatureComponent from "./FeatureComponent";
+import ShadowBtn from "./ShadowBtn";
 
 export default function FeatureSection() {
   return (
     <>
-      <div className="container mx-auto max-w-7xl ">
-        <h3 className="w-fit mx-auto text-white text-2xl font-semibold text-center mb-[50px] px-6 py-2 rounded-full shadow-lg shadow-fuchsia-600">
-          Features
-        </h3>
-        <div className="flex flex-row gap-0">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ShadowBtn title="Features" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuresInfo?.map((info, idx) => (
-            <FeatureComponent key={idx}  data={info} />
+            <FeatureComponent key={idx} data={info} />
           ))}
         </div>
       </div>
