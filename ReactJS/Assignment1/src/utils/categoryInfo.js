@@ -9,7 +9,7 @@ export const categoryInfo = [
     id: 2,
      category:"mouse",
     title: "Gaming Mouse",
-    image:"/keyboard.png"
+    image:"/mouse.png"
   },
   {
     id: 3,

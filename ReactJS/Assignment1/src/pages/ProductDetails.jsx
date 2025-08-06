@@ -1,20 +1,11 @@
-// src/pages/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate,Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import AddToCart from "../components/AddToCart";
-// import { addToCart } from "../redux/slice/cartSlice";
-// import { toast } from "react-toastify";
-// import { useDispatch } from "react-redux";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
-// const dispatch = useDispatch();
-//   const handleAddToCart = () => {
-//     toast.success("Added to cart");
-//     dispatch(addToCart(product));
-//   };
 
   useEffect(() => {
     fetch("/data/productdata.json")
@@ -28,50 +19,54 @@ export default function ProductDetails() {
   if (!product) return <p className="p-10">Loading product...</p>;
 
   return (
-    <div className="h-screen">
-      <div className="flex flex-row my-16 justify-content align-item-center p-10 max-w-3xl mx-auto text-white bg-gradient-to-br from-[#2b2b2b] to-[#3a1c71] rounded-2xl shadow-xl">
-        <div>
-          <h2 className="text-3xl font-bold mb-2">{product.name}</h2>
+    <div className="min-h-screen bg-black text-white px-4 py-10">
+      <div className="flex flex-col lg:flex-row gap-10 items-center max-w-5xl mx-auto bg-gradient-to-br from-[#2b2b2b] to-[#3a1c71] p-6 lg:p-10 rounded-2xl shadow-xl">
+        
+       
 
-          {/* ⭐ Best Seller Badge (Optional logic: flag or rating based) */}
-          {(product.bestseller || product.ratings >= 4.5) && (
-            <span className="inline-block bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded-full mb-2">
-              🔥 Best Seller
-            </span>
-          )}
+        {/* Product Details */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-between ">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-5">{product.name}</h2>
 
-          <p className="text-purple-300 font-semibold mb-2">
-            {product.category}
-          </p>
-          <p className="text-xl text-yellow-400 mb-4">₹ {product.price}</p>
-          <p className="text-sm text-gray-300 mb-6">{product.description}</p>
 
-          {/* ⭐ Rating as stars */}
-          <div className="mb-4">
-            <span className="text-sm  text-white">
-              Rating : {product.ratings}
-              {/* {" " + "⭐".repeat(Math.floor(product.ratings))}
-              {"☆".repeat(5 - Math.floor(product.ratings))}  */}
-            </span>
+            <p className="text-purple-300 font-semibold mb-5 capitalize">{product.category}</p>
+            <p className="text-xl text-yellow-400 mb-5">₹ {product.price}</p>
+            <p className="text-sm text-gray-300 mb-5">{product.description}</p>
+
+            {(product.bestseller || product.ratings >= 4.5) && (
+              <span className="inline-block bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded-full mb-5">
+                🔥 Best Seller
+              </span>
+            )}
+            {/* ⭐ Rating with stars */}
+            <div className="mb-5 text-sm text-white">
+              Rating: ⭐ {product.ratings}
+              <span className="text-yellow-300">
+                {/* {"⭐".repeat(Math.floor(product.ratings))}
+                {"☆".repeat(5 - Math.floor(product.ratings))} */}
+              </span>
+            </div>
+          {/* Add to Cart + View Less */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <AddToCart item={product} />
+            <Link
+              onClick={() => navigate(-1)}
+              className="text-sm text-blue-300 underline self-start mt-1"
+            >
+              View Less
+            </Link>
           </div>
-
-          <div className="flex flex-row gap-5">
-            <AddToCart item={product}/>
-          <Link
-            onClick={() => navigate(-1)}
-            className="  text-2xs text-blue-400 mt-2 underline"
-          >
-            View Less
-          </Link>
           </div>
 
         </div>
 
-        <div>
+         {/* Product Image */}
+        <div className="flex-shrink-0 w-full lg:w-1/2">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full max-h-96 object-contain rounded mb-4"
+            className="object-contain max-h-full rounded-lg"
           />
         </div>
       </div>
