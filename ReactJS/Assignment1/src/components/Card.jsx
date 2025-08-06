@@ -2,8 +2,11 @@ import { IoIosHeart } from "react-icons/io";
 import React, { useContext } from "react";
 import { WishlistContext } from "../context/WishlistContext";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../redux/slice/cartSlice";
-import { toast } from "react-toastify";
+import {  removeFromCart } from "../redux/slice/cartSlice";
+import { Link } from "react-router-dom";
+import AddToCart from "./AddToCart";
+// import { toast } from "react-toastify";
+
 
 export default function Card({
   item,
@@ -15,11 +18,10 @@ export default function Card({
 
   const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
-    // console.log("Adding to cart:", item);
-    toast.success("Added to cart");
-    dispatch(addToCart(item));
-  };
+  // const handleAddToCart = () => {
+  //   toast.success("Added to cart");
+  //   dispatch(addToCart(item));
+  // };
 
   return (
     <>
@@ -47,12 +49,13 @@ export default function Card({
 
       <div className="flex items-center justify-between gap-3 mt-auto">
         {showAddToCart && (
-          <button
-            onClick={handleAddToCart}
-            className="mt-auto bg-fuchsia-500 hover:bg-fuchsia-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition duration-200"
-          >
-            Add to Cart
-          </button>
+          // <button
+          //   onClick={handleAddToCart}
+          //   className="mt-auto bg-fuchsia-500 hover:bg-fuchsia-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition duration-200"
+          // >
+          //   Add to Cart
+          // </button>
+          <AddToCart item={item}/>
         )}
 
         {showRemoveButton && (
@@ -65,8 +68,16 @@ export default function Card({
         )}
 
         {/* <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-pink-500 hover:text-pink-400 transition duration-200">
-          <IoIosHeart size={20} strokeWidth={2} />
+          {/* <IoIosHeart size={20} strokeWidth={2} /> */}
+        {/* view more
         </button> */}
+
+        <Link
+          to={`/product/${item.id}`}
+          className="text-xs text-blue-400 mt-2 underline"
+        >
+          View More
+        </Link>
 
         <button onClick={() => toggleWishlist(item)}>
           <IoIosHeart color={isWished ? "red" : "gray"} size={22} />

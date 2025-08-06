@@ -11,15 +11,15 @@ import "react-toastify/dist/ReactToastify.css";
 import PublicLayout from "./layouts/PublicLayout.jsx";
 import CategoryProducts from "./pages/CategoryProducts.jsx";
 import Products from "./pages/products.jsx";
-import { WishlistProvider } from "./context/WishlistContext.jsx";
+import WishlistProvider from "./context/WishlistContext";
 import Wishlist from "./pages/Wishlist.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import Cart from "./pages/Cart.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import SearchResults from "./pages/SearchResults.jsx";
-
-
+import CheckOut from "./pages/CheckOut.jsx";
+import ProductDetails from "./pages/ProductDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,16 +43,28 @@ const router = createBrowserRouter([
         element: <Wishlist />,
       },
       {
-        path:"/cart",
-        element:<Cart/>,
+        path: "/cart",
+        element: <Cart />,
       },
       {
-        path:"/signup",
-        element:<SignUp/>
+        path: "/signup",
+        element: <SignUp />,
       },
       {
-        path:"/search",
-        element:<SearchResults/>
+        path: "/search",
+        element: <SearchResults />,
+      },
+      {
+        path: "/auth",
+        element: <SignUp />,
+      },
+      {
+        path: "/checkout",
+        element: <CheckOut />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails/>
       },
     ],
   },
@@ -61,11 +73,10 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-       <WishlistProvider>
-       <RouterProvider router={router} />
-       <ToastContainer position="bottom-right" autoClose={2000}/>
-    </WishlistProvider>
+      <WishlistProvider>
+        <RouterProvider router={router} />
+        <ToastContainer position="bottom-right" autoClose={2000} />
+      </WishlistProvider>
     </Provider>
-   
   </StrictMode>
 );

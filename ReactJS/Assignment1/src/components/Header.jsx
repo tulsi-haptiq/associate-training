@@ -1,95 +1,24 @@
-// import { FaShoppingCart, FaRegUser } from "react-icons/fa";
-// import { IoMdSearch } from "react-icons/io";
-// import { IoGameController } from "react-icons/io5";
-// import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
-
-// export default function Header() {
-//   const totalItem = useSelector((state) => state.cart.totalItem);
-
-//   return (
-//     <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md shadow-lg px-4 sm:px-6 py-3 sm:py-4">
-//       <div className="container mx-auto flex items-center justify-between text-white flex-wrap gap-4 sm:gap-0">
-//         {/* Logo */}
-//         <div className="flex items-center gap-2 text-2xl sm:text-3xl md:text-4xl font-semibold">
-//           <IoGameController className="text-purple-500" />
-//           <Link to="/" className="hover:text-purple-400 transition duration-200">
-//             Tulsi
-//           </Link>
-//         </div>
-
-//         {/* Nav Links */}
-//         <nav className="w-full md:w-auto">
-//           <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-lg sm:text-xl md:text-2xl font-medium justify-center md:justify-start">
-//             <li>
-//               <Link to="/" className="hover:text-purple-400 transition duration-200">
-//                 Home
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/products" className="hover:text-purple-400 transition duration-200">
-//                 Products
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/wishlist" className="hover:text-purple-400 transition duration-200">
-//                 Wishlist
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/cart" className="hover:text-purple-400 transition duration-200">
-//                 Cart
-//               </Link>
-//             </li>
-//           </ul>
-//         </nav>
-
-//         {/* Icons */}
-//         <div className="flex items-center gap-3 sm:gap-4">
-//           <Link to="/">
-//             <IoMdSearch size={28} className="sm:size-[32px] md:size-[40px]" />
-//           </Link>
-
-//           <Link to="/cart" className="relative">
-//             <FaShoppingCart size={24} className="sm:size-[28px] md:size-[35px]" />
-//             {totalItem > 0 && (
-//               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] px-1.5 rounded-full">
-//                 {totalItem}
-//               </span>
-//             )}
-//           </Link>
-
-//           <Link to="/signup">
-//             <FaRegUser size={24} className="sm:size-[28px] md:size-[35px]" />
-//           </Link>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }  ,
 import { useState } from "react";
 import { FaShoppingCart, FaRegUser } from "react-icons/fa";
 import { IoMdSearch } from "react-icons/io";
 import { IoGameController } from "react-icons/io5";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
-import { setSearchQuery } from "../redux/slice/searchSlice";
+import UserMenu from "./UserMenu";
 
 export default function Header() {
   const totalItem = useSelector((state) => state.cart.totalItem);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Inside Header component
-  const [query, setQuery] = useState("");
-  const dispatch = useDispatch();
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (!query.trim()) return;
-    dispatch(setSearchQuery(query));
-    navigate("/search");
+    if (searchTerm.trim()) {
+   navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+      setSearchTerm(""); // optional: clear input
+    }
   };
 
   return (
@@ -121,20 +50,26 @@ export default function Header() {
 
         {/* Icons */}
         <div className="flex items-center gap-3 sm:gap-4">
-          {/* <Link to="/">
+          {/* <Link to="/checkout">
             <IoMdSearch size={24} className="sm:size-6 md:size-7" />
           </Link> */}
-          <form onSubmit={handleSearch} className="flex items-center gap-2">
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search..."
-              className="px-2 py-1 rounded text-black text-sm sm:text-base"
-            />
-            <button type="submit">
-              <IoMdSearch size={24} className="text-white" />
-            </button>
+          <form
+            onSubmit={handleSearch}
+            className="w-full max-w-lg mx-auto flex items-center gap-x-2"
+          >
+            <div className="relative flex-grow">
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <IoMdSearch />
+              </div>
+              <input
+                type="search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search for products, categories..."
+                className="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          
           </form>
 
           <Link to="/cart" className="relative">
@@ -145,10 +80,11 @@ export default function Header() {
               </span>
             )}
           </Link>
-
+          {/* 
           <Link to="/signup">
             <FaRegUser size={22} className="sm:size-6 md:size-7" />
-          </Link>
+          </Link> */}
+          <UserMenu />
 
           {/* Hamburger (mobile only) */}
           <button

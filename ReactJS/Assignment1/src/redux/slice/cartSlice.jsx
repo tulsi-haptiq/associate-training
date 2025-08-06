@@ -1,63 +1,47 @@
-import React from "react";
+// redux/slice/cartSlice.jsx
 import { createSlice } from "@reduxjs/toolkit";
 
-// initial state of cart
-const initialState = {
+// Load initial cart from localStorage
+const savedCart = JSON.parse(localStorage.getItem("cart")) || {
   cartItems: [],
   totalItem: 0,
   totalPrice: 0,
 };
 
-//create the slice
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: savedCart,
   reducers: {
-    // add to cart action
-    addToCart(state, action) {
-      const product = action.payload;
-      const price = parseFloat(product.price); // ✅ Always convert to number
-      
-      const existingItem = state.cartItems.find(
-        (item) => item.id === product.id
-      );
+    addToCart: (state, action) => {
+      const item = action.payload;
+      const existingItem = state.cartItems.find((i) => i.id === item.id);
 
       if (existingItem) {
-        // if present increase quantity
         existingItem.quantity += 1;
       } else {
-        state.cartItems.push({ ...product, quantity: 1 , price});
+        state.cartItems.push({ ...item, quantity: 1 });
       }
 
-      state.totalItem += 1;
-      state.totalPrice += price;
+      state.totalItem = state.cartItems.reduce((acc, item) => acc + item.quantity, 0);
+      state.totalPrice = state.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
+      localStorage.setItem("cart", JSON.stringify(state));
     },
 
-    // to remove the product
-    removeFromCart(state, action) {
-      const productId = action.payload;
-      const itemToRemove = state.cartItems.find(
-        (item) => item.id === productId
-      );
-
-      if (itemToRemove) {
-        state.totalItem -= itemToRemove.quantity;
-        state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
-        state.cartItems = state.cartItems.filter(
-          (item) => item.id !== productId
-        );
-      }
+    removeFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter((i) => i.id !== action.payload);
+      state.totalItem = state.cartItems.reduce((acc, item) => acc + item.quantity, 0);
+      state.totalPrice = state.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
+      localStorage.setItem("cart", JSON.stringify(state));
     },
 
-    // clear the cart
-    clearCart(state) {
+    clearCart: (state) => {
       state.cartItems = [];
       state.totalItem = 0;
       state.totalPrice = 0;
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
 
 export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
-
 export default cartSlice.reducer;
