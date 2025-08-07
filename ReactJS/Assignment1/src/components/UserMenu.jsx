@@ -13,8 +13,7 @@ export default function UserMenu() {
   const user = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const { clearWishlist } = useContext(WishlistContext); 
-  // const {} = useContext(WishlistContext); 
+
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -29,7 +28,7 @@ export default function UserMenu() {
   const handleLogout = () => {
     dispatch(logout());            // clears user and localStorage
     dispatch(clearCart());         // ✅ clears cart state
-    // clearWishlist();               // ✅ clears wishlist state (if using context)
+
     localStorage.removeItem("wishlist"); // ✅ also remove from LS if needed
 
     navigate("/"); // Redirect to homepage

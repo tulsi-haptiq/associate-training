@@ -1,27 +1,26 @@
 export const categoryInfo = [
   {
     id: 1,
-    category:"keyboard",
+    category: "keyboard",
     title: "Keyboards Gaming",
-    image:"/keyboard.png"
+    image: "/keyboard.png",
   },
-   {
+  {
     id: 2,
-     category:"mouse",
+    category: "mouse",
     title: "Gaming Mouse",
-    image:"/mouse.png"
+    image: "/mouse.png",
   },
   {
     id: 3,
-     category:"headset",
+    category: "headset",
     title: "Headphones",
-    image:"/heroimg.png"
+    image: "/heroimg.png",
   },
-   {
+  {
     id: 4,
-     category:"gaming console",
+    category: "gaming console",
     title: "Gaming controllers",
-    image:"/keyboard.png"
+    image: "/keyboard.png",
   },
-
 ];

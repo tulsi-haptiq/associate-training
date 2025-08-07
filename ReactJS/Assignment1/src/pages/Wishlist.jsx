@@ -19,7 +19,7 @@ export default function Wishlist() {
         {wishlist.length === 0 ? (
           <div className="text-center text-gray-400 text-base sm:text-lg mt-10">
            <p className="mb-5"> Your wishlist is empty.
-            <br/> lets explore. 
+            <br/> Let's explore. 
            </p>
            <ShopNow/>
           </div>
