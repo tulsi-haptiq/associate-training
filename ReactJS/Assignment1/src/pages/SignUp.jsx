@@ -162,7 +162,12 @@ export default function SignUp() {
                 </button>
                 {/* <Link to="/" className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"
   >
-                  Sign In</Link> */}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"
+                >
+                  Sign In
+                </button>
               </>
             )}
           </div>
