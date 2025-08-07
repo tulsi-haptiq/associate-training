@@ -1,11 +1,11 @@
 // components/UserMenu.jsx
-import React, {useContext, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../redux/slice/cartSlice"; 
 import { logout } from "../redux/slice/authSlice";
-import { WishlistContext } from "../context/WishlistContext";
+// import { WishlistContext } from "../context/WishlistContext";
 
 export default function UserMenu() {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,8 @@ export default function UserMenu() {
   const user = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { clearWishlist } = useContext(WishlistContext); 
+  // const { clearWishlist } = useContext(WishlistContext); 
+  // const {} = useContext(WishlistContext); 
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -28,7 +29,7 @@ export default function UserMenu() {
   const handleLogout = () => {
     dispatch(logout());            // clears user and localStorage
     dispatch(clearCart());         // ✅ clears cart state
-    clearWishlist();               // ✅ clears wishlist state (if using context)
+    // clearWishlist();               // ✅ clears wishlist state (if using context)
     localStorage.removeItem("wishlist"); // ✅ also remove from LS if needed
 
     navigate("/"); // Redirect to homepage

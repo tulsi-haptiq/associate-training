@@ -48,9 +48,11 @@
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
       toast.success("Account created successfully! Please sign in.");
+      dispatch(login(newUser)); // log in the new user
       setFormData({ name: "", email: "", password: "" });
-      setIsSignUp(false); // Switch to Sign In
-      navigate("/auth?mode=signin"); // Redirect to Sign In page
+      navigate("/"); // redirect to home page
+      // setIsSignUp(false); // Switch to Sign In
+      // navigate("/auth?mode=signin"); // Redirect to Sign In page
     } else {
       // Sign In
       const user = users.find(
