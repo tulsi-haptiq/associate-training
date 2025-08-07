@@ -55,7 +55,13 @@ export default function ProductDetails() {
               className="text-sm text-blue-300 underline self-start mt-1"
             >
               View Less
-            </Link>
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="text-sm text-blue-300 underline self-start mt-1 bg-transparent border-none p-0 cursor-pointer"
+            >
+              View Less
+            </button>
           </div>
           </div>
 
