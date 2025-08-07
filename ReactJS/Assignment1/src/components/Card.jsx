@@ -2,11 +2,9 @@ import { IoIosHeart } from "react-icons/io";
 import React, { useContext } from "react";
 import { WishlistContext } from "../context/WishlistContext";
 import { useDispatch } from "react-redux";
-import {  removeFromCart } from "../redux/slice/cartSlice";
+import { removeFromCart } from "../redux/slice/cartSlice";
 import { Link } from "react-router-dom";
 import AddToCart from "./AddToCart";
-// import { toast } from "react-toastify";
-
 
 export default function Card({
   item,
@@ -17,11 +15,6 @@ export default function Card({
   const isWished = isInwishlist(item.id);
 
   const dispatch = useDispatch();
-
-  // const handleAddToCart = () => {
-  //   toast.success("Added to cart");
-  //   dispatch(addToCart(item));
-  // };
 
   return (
     <>
@@ -48,15 +41,7 @@ export default function Card({
       </div>
 
       <div className="flex items-center justify-between gap-3 mt-auto">
-        {showAddToCart && (
-          // <button
-          //   onClick={handleAddToCart}
-          //   className="mt-auto bg-fuchsia-500 hover:bg-fuchsia-700 text-white py-2 px-4 rounded-lg text-sm font-semibold transition duration-200"
-          // >
-          //   Add to Cart
-          // </button>
-          <AddToCart item={item}/>
-        )}
+        {showAddToCart && <AddToCart item={item} />}
 
         {showRemoveButton && (
           <button
@@ -66,11 +51,6 @@ export default function Card({
             Remove
           </button>
         )}
-
-        {/* <button className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-pink-500 hover:text-pink-400 transition duration-200">
-          {/* <IoIosHeart size={20} strokeWidth={2} /> */}
-        {/* view more
-        </button> */}
 
         <Link
           to={`/product/${item.id}`}

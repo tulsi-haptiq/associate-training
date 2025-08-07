@@ -21,16 +21,16 @@ export default function ProductDetails() {
   return (
     <div className="min-h-screen bg-black text-white px-4 py-10">
       <div className="flex flex-col lg:flex-row gap-10 items-center max-w-5xl mx-auto bg-gradient-to-br from-[#2b2b2b] to-[#3a1c71] p-6 lg:p-10 rounded-2xl shadow-xl">
-        
-       
-
         {/* Product Details */}
         <div className="w-full lg:w-1/2 flex flex-col justify-between ">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-5">{product.name}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-5">
+              {product.name}
+            </h2>
 
-
-            <p className="text-purple-300 font-semibold mb-5 capitalize">{product.category}</p>
+            <p className="text-purple-300 font-semibold mb-5 capitalize">
+              {product.category}
+            </p>
             <p className="text-xl text-yellow-400 mb-5">₹ {product.price}</p>
             <p className="text-sm text-gray-300 mb-5">{product.description}</p>
 
@@ -42,28 +42,24 @@ export default function ProductDetails() {
             {/* ⭐ Rating with stars */}
             <div className="mb-5 text-sm text-white">
               Rating: ⭐ {product.ratings}
-              <span className="text-yellow-300">
-                {/* {"⭐".repeat(Math.floor(product.ratings))}
-                {"☆".repeat(5 - Math.floor(product.ratings))} */}
-              </span>
+              <span className="text-yellow-300"></span>
             </div>
-          {/* Add to Cart + View Less */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <AddToCart item={product} />
-            
-            <button
-              type="button"
-              onClick={() => navigate(-1)}
-              className="text-sm text-blue-300 underline self-start mt-1 bg-transparent border-none p-0 cursor-pointer"
-            >
-              View Less
-            </button>
-          </div>
-          </div>
+            {/* Add to Cart + View Less */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <AddToCart item={product} />
 
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
+                className="text-sm text-blue-300 underline self-start mt-1 bg-transparent border-none p-0 cursor-pointer"
+              >
+                View Less
+              </button>
+            </div>
+          </div>
         </div>
 
-         {/* Product Image */}
+        {/* Product Image */}
         <div className="flex-shrink-0 w-full lg:w-1/2">
           <img
             src={product.image}

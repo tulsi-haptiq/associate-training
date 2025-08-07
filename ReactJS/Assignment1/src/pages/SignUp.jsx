@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/slice/authSlice";
 import { toast } from "react-toastify";
-// import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 
 export default function SignUp() {
@@ -53,8 +52,7 @@ export default function SignUp() {
       dispatch(login(newUser)); // log in the new user
       setFormData({ name: "", email: "", password: "" });
       navigate("/"); // redirect to home page
-      // setIsSignUp(false); // Switch to Sign In
-      // navigate("/auth?mode=signin"); // Redirect to Sign In page
+    
     } else {
       // Sign In
       const user = users.find(
@@ -139,10 +137,7 @@ export default function SignUp() {
               </button>
             ) : (
               <>
-                {/* <div className="flex items-center gap-2 text-xs sm:text-sm">
-                    <input type="checkbox" className="accent-purple-500" />
-                    Remember me
-                  </div> */}
+              
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"

@@ -42,9 +42,7 @@ export default function SearchResult() {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 text-white">
-      {/* <h2 className="text-xl font-bold mb-4">
-        Search Results for <span className="text-pink-500">"{searchTerm}"</span>
-      </h2> */}
+   
 
       {loading ? (
         <p>Loading...</p>
