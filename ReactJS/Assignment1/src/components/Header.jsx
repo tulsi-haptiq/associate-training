@@ -50,8 +50,11 @@ export default function Header() {
 
         {/* Icons */}
         <div className="flex items-center gap-3 sm:gap-4">
+<<<<<<< HEAD
           {/* <Link to="/checkout">
             <IoMdSearch size={24} className="sm:size-6 md:size-7" />
+=======
+>>>>>>> 871afef (react assignment 1 resolving stage  4)
           <form
             onSubmit={handleSearch}
             className="w-full max-w-lg mx-auto flex items-center gap-x-2"
@@ -78,10 +81,7 @@ export default function Header() {
               </span>
             )}
           </Link>
-          {/* 
-          <Link to="/signup">
-            <FaRegUser size={22} className="sm:size-6 md:size-7" />
-          </Link> */}
+
           <UserMenu />
 
           {/* Hamburger (mobile only) */}

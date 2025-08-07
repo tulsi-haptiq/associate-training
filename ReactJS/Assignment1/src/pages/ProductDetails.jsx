@@ -50,17 +50,22 @@ export default function ProductDetails() {
           {/* Add to Cart + View Less */}
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <AddToCart item={product} />
-            <Link
-              onClick={() => navigate(-1)}
-              className="text-sm text-blue-300 underline self-start mt-1"
-            >
-              View Less
+            
             <button
               type="button"
               onClick={() => navigate(-1)}
               className="text-sm text-blue-300 underline self-start mt-1 bg-transparent border-none p-0 cursor-pointer"
             >
               View Less
+<<<<<<< HEAD
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="text-sm text-blue-300 underline self-start mt-1 bg-transparent border-none p-0 cursor-pointer"
+            >
+              View Less
+=======
+>>>>>>> 871afef (react assignment 1 resolving stage  4)
             </button>
           </div>
           </div>

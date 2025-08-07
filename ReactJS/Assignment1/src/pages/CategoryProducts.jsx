@@ -1,27 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import productData from "../../public/data/productdata.json";
 import Card from "../components/Card";
 
 export default function CategoryProducts() {
   const { category } = useParams();
-  const items = productData.items;
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/data/productdata.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setItems(data.items || []);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch product data:", error);
+        setLoading(false);
+      });
+  }, []);
 
   const filteredProducts = items.filter(
     (item) => item.category.toLowerCase() === category.toLowerCase()
   );
 
-  const noProducts = filteredProducts.length === 0;
+  const noProducts = !loading && filteredProducts.length === 0;
 
   return (
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-6 text-white min-h-screen">
-      {!noProducts && (
+      {!noProducts && !loading && (
         <h3 className="w-fit mx-auto text-lg sm:text-xl md:text-2xl font-semibold mb-8 px-4 sm:px-6 py-2 rounded-full shadow-lg shadow-fuchsia-600 capitalize">
           {category} Products
         </h3>
       )}
 
-      {noProducts ? (
+      {loading ? (
+        <div className="text-center text-gray-300 text-lg sm:text-xl font-medium mt-10">
+          Loading...
+        </div>
+      ) : noProducts ? (
         <div className="text-center text-gray-300 text-lg sm:text-xl font-medium mt-10">
           No products found for{" "}
           <span className="capitalize text-pink-400">{category} Category</span>.
