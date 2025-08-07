@@ -15,7 +15,7 @@ export default function Wishlist() {
         </h2> */}
        {/* <div className="content-start"> */}
          <ShadowBtn title="My Wishlist"/>
-       {/* </div> */}
+         <ShadowBtn title="My Wishlist"/>
         {wishlist.length === 0 ? (
           <div className="text-center text-gray-400 text-base sm:text-lg mt-10">
            <p className="mb-5"> Your wishlist is empty.
