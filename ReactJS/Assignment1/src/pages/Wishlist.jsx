@@ -10,17 +10,8 @@ export default function Wishlist() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-<<<<<<< HEAD
-        {/* <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg text-center sm:text-left">
-          My Wishlist
-        </h2> */}
-       {/* <div className="content-start"> */}
-         <ShadowBtn title="My Wishlist"/>
-         <ShadowBtn title="My Wishlist"/>
-=======
         <ShadowBtn title="My Wishlist" />
 
->>>>>>> 871afef (react assignment 1 resolving stage  4)
         {wishlist.length === 0 ? (
           <div className="text-center text-gray-400 text-base sm:text-lg mt-10">
             <p className="mb-5">

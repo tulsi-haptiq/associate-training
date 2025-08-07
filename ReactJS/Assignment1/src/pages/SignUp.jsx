@@ -73,28 +73,10 @@ export default function SignUp() {
   };
 
   return (
-<<<<<<< HEAD
-<div
-  className="
-    min-h-screen
-    flex
-    items-center
-    justify-center
-    px-4
-    sm:px-6
-    bg-gradient-to-br
-    from-gray-900
-    to-indigo-900
-    relative
-    overflow-hidden
-  "
->
-=======
     <div
       className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-gradient-to-br from-gray-900
  to-indigo-900 relative overflow-hidden"
     >
->>>>>>> 871afef (react assignment 1 resolving stage  4)
       <div className="absolute w-full h-full overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <div
@@ -167,18 +149,6 @@ export default function SignUp() {
                 >
                   Sign In
                 </button>
-<<<<<<< HEAD
-                {/* <Link to="/" className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"
-  >
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"
-                >
-                  Sign In
-                </button>
-=======
-  
->>>>>>> 871afef (react assignment 1 resolving stage  4)
               </>
             )}
           </div>
