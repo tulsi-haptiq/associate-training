@@ -52,7 +52,6 @@ export default function Header() {
         <div className="flex items-center gap-3 sm:gap-4">
           {/* <Link to="/checkout">
             <IoMdSearch size={24} className="sm:size-6 md:size-7" />
-          </Link> */}
           <form
             onSubmit={handleSearch}
             className="w-full max-w-lg mx-auto flex items-center gap-x-2"
