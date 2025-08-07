@@ -15,12 +15,12 @@ export const categoryInfo = [
     id: 3,
     category: "headset",
     title: "Headphones",
-    image: "/heroimg.png",
+    image: "/headset.png",
   },
   {
     id: 4,
     category: "gaming console",
     title: "Gaming controllers",
-    image: "/keyboard.png",
+    image: "/console.png",
   },
 ];

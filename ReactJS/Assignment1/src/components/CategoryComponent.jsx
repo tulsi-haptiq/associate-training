@@ -7,7 +7,7 @@ export default function CategoryComponent({ data }) {
     <section className="container mx-auto px-4 sm:px-6 lg:px-8 mb-20">
       <div className="text-center">
         <Link to={`/category/${data.category}`}>
-          <div className="flex flex-col justify-between items-center p-6 bg-gray-900 rounded-xl shadow-lg border border-gray-800 w-full max-w-sm mx-auto h-[300px]">
+          <div className="flex flex-col justify-between items-center p-6 bg-gray-900 rounded-xl shadow-lg border border-gray-800 w-full max-w-sm mx-auto h-[330px]">
             <div className="w-full mb-4">
               <img
                 src={data.image}

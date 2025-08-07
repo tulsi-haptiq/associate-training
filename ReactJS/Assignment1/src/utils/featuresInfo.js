@@ -9,7 +9,7 @@ export const featuresInfo = [
     Icon: FaTruck,
     title: "Free Shipping",
     description:
-      "Free shipping to make your shopping more Experience more Awesome.",
+      "Free shipping to make your shopping experience more awesome.",
   },
   {
     id: 2,

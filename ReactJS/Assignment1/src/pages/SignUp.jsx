@@ -74,8 +74,8 @@ export default function SignUp() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-gradient-to-br from-gray-900
- to-indigo-900 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-gradient-to-br
+       from-gray-900 to-indigo-900 relative overflow-hidden"
     >
       <div className="absolute w-full h-full overflow-hidden">
         {[...Array(20)].map((_, i) => (

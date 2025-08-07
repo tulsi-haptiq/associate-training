@@ -24,7 +24,7 @@ export default function HeroSection() {
       {/* Right Image */}
       <div className="flex justify-center">
         <img
-          src="/heroimg.png"
+          src="/headset.png"
           alt="Gaming Hero"
           className="w-full max-w-md sm:max-w-lg md:max-w-xl"
         />
