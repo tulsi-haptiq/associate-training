@@ -1,7 +1,7 @@
-import React from 'react';
-import { categoryInfo } from '../utils/categoryInfo';
-import CategoryComponent from './CategoryComponent';
-import ShadowBtn from './ShadowBtn';
+import React from "react";
+import { categoryInfo } from "../utils/categoryInfo";
+import CategoryComponent from "./CategoryComponent";
+import ShadowBtn from "./ShadowBtn";
 
 export default function CategorySection() {
   return (

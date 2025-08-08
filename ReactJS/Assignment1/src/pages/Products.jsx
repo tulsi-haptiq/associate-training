@@ -42,12 +42,12 @@ export default function SearchResult() {
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-6 text-white">
-   
-
       {loading ? (
         <p>Loading...</p>
       ) : filteredItems.length === 0 ? (
-        <p className="text-pink-400 font-semibold">No products found for "{searchTerm}"</p>
+        <p className="text-pink-400 font-semibold">
+          No products found for "{searchTerm}"
+        </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredItems.map((item) => (

@@ -74,8 +74,6 @@ export default function SignUp() {
       className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-gradient-to-br
        from-gray-900 to-indigo-900 relative overflow-hidden"
     >
-      
-
       <div className="relative bg-gradient-to-br from-indigo-700 to-purple-800 rounded-3xl shadow-lg p-6 sm:p-10 w-full max-w-sm sm:max-w-md text-white z-10">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center">
           {isSignUp ? "Sign Up" : "Sign In"}

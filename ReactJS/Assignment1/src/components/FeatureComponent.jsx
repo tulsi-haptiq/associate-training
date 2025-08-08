@@ -11,7 +11,9 @@ export default function FeatureComponent({ data }) {
           <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">
             {data.title}
           </h3>
-          <p className="text-gray-400 text-sm sm:text-base">{data.description}</p>
+          <p className="text-gray-400 text-sm sm:text-base">
+            {data.description}
+          </p>
         </div>
       </div>
     </section>

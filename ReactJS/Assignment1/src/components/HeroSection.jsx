@@ -17,8 +17,7 @@ export default function HeroSection() {
         </p>
 
         {/* shop now */}
-        <ShopNow/>
-
+        <ShopNow />
       </div>
 
       {/* Right Image */}

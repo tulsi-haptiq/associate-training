@@ -3,9 +3,8 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addToCart } from "../redux/slice/cartSlice";
 
-export default function AddToCart({item}) {
-
-    const dispatch = useDispatch();
+export default function AddToCart({ item }) {
+  const dispatch = useDispatch();
 
   const handleAddToCart = () => {
     toast.success("Added to cart");

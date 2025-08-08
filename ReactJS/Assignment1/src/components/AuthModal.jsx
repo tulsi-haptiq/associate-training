@@ -1,11 +1,15 @@
-    import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/slice/authSlice";
 import { toast } from "react-toastify";
 
 export default function AuthModal({ isOpen, onClose, mode }) {
   const [isSignUp, setIsSignUp] = useState(mode === "signup");
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
