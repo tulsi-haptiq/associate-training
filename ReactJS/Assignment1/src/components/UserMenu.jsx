@@ -1,11 +1,9 @@
-// components/UserMenu.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "../redux/slice/cartSlice"; 
+import { clearCart } from "../redux/slice/cartSlice";
 import { logout } from "../redux/slice/authSlice";
-// import { WishlistContext } from "../context/WishlistContext";
 
 export default function UserMenu() {
   const [open, setOpen] = useState(false);
@@ -13,7 +11,6 @@ export default function UserMenu() {
   const user = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -26,11 +23,9 @@ export default function UserMenu() {
   }, []);
 
   const handleLogout = () => {
-    dispatch(logout());            // clears user and localStorage
-    dispatch(clearCart());         // ✅ clears cart state
-
+    dispatch(logout()); // clears user and localStorage
+    dispatch(clearCart()); // ✅ clears cart state
     localStorage.removeItem("wishlist"); // ✅ also remove from LS if needed
-
     navigate("/"); // Redirect to homepage
   };
 
@@ -65,7 +60,9 @@ export default function UserMenu() {
             </>
           ) : (
             <>
-              <div className="px-4 py-2 font-semibold border-b">{user.name}</div>
+              <div className="px-4 py-2 font-semibold border-b">
+                {user.name}
+              </div>
               <button
                 onClick={handleLogout}
                 className="block w-full text-left px-4 py-2 hover:bg-gray-100"

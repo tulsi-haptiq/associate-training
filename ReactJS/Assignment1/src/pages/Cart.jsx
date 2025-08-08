@@ -50,7 +50,6 @@ export default function Cart() {
 
       {/* Cart Summary Section */}
      <div className="flex flex-col lg:flex-row gap-8 items-start">
-  
 
   {/* Right: Cart Summary */}
   <div className="bg-gradient-to-r from-purple-800 to-indigo-800 p-6 rounded-2xl text-white shadow-2xl w-full lg:w-[400px] self-start">

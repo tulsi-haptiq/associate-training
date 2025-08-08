@@ -52,7 +52,6 @@ export default function SignUp() {
       dispatch(login(newUser)); // log in the new user
       setFormData({ name: "", email: "", password: "" });
       navigate("/"); // redirect to home page
-    
     } else {
       // Sign In
       const user = users.find(
@@ -136,15 +135,12 @@ export default function SignUp() {
                 Create Account
               </button>
             ) : (
-              <>
-              
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"
-                >
-                  Sign In
-                </button>
-              </>
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 py-2 rounded-full hover:from-purple-600 hover:to-indigo-600 text-sm sm:text-base"
+              >
+                Sign In
+              </button>
             )}
           </div>
         </form>
