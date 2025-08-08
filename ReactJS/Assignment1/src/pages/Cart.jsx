@@ -14,7 +14,7 @@ export default function Cart() {
   const handleCheckout = () => {
     if (!user) {
       // If not logged in, redirect to Sign In
-      navigate("/auth?mode=signin");
+      navigate("/signup?mode=signin");
     } else {
       // If logged in, proceed to Checkout
       navigate("/checkout"); // or your actual checkout route

@@ -41,7 +41,7 @@ export default function UserMenu() {
             <>
               <button
                 onClick={() => {
-                  navigate("/auth?mode=signin");
+                  navigate("/signup?mode=signin");
                   setOpen(false);
                 }}
                 className="block w-full text-left px-4 py-2 hover:bg-gray-100"
@@ -50,7 +50,7 @@ export default function UserMenu() {
               </button>
               <button
                 onClick={() => {
-                  navigate("/auth?mode=signup");
+                  navigate("/signup?mode=signup");
                   setOpen(false);
                 }}
                 className="block w-full text-left px-4 py-2 hover:bg-gray-100"
