@@ -1,12 +1,20 @@
-// redux/slice/cartSlice.jsx
 import { createSlice } from "@reduxjs/toolkit";
 
-// Load initial cart from localStorage
-const savedCart = JSON.parse(localStorage.getItem("cart")) || {
+// Safe load from localStorage
+let savedCart = {
   cartItems: [],
   totalItem: 0,
   totalPrice: 0,
 };
+
+try {
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    savedCart = JSON.parse(storedCart);
+  }
+} catch (error) {
+  console.error("Failed to parse cart data from localStorage:", error);
+}
 
 const cartSlice = createSlice({
   name: "cart",

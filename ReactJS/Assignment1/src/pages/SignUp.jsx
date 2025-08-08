@@ -74,21 +74,7 @@ export default function SignUp() {
       className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-gradient-to-br
        from-gray-900 to-indigo-900 relative overflow-hidden"
     >
-      <div className="absolute w-full h-full overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-purple-500 rounded-full opacity-30 animate-pulse"
-            style={{
-              width: `${Math.random() * 100 + 50}px`,
-              height: `${Math.random() * 100 + 50}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDuration: `${Math.random() * 5 + 3}s`,
-            }}
-          ></div>
-        ))}
-      </div>
+      
 
       <div className="relative bg-gradient-to-br from-indigo-700 to-purple-800 rounded-3xl shadow-lg p-6 sm:p-10 w-full max-w-sm sm:max-w-md text-white z-10">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center">
