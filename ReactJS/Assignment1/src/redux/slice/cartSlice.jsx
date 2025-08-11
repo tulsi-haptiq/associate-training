@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { setError } from "./errorSlice";
 
 // Safe load from localStorage
 let savedCart = {
@@ -32,19 +33,47 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: savedCart,
   reducers: {
+    // addToCart: (state, action) => {
+    //   try {
+    //     const item = action.payload;
+    //     const existingItem = state.cartItems.find((i) => i.id === item.id);
+
+    //     if (existingItem) {
+    //       existingItem.quantity += 1;
+    //     } else {
+    //       state.cartItems.push({ ...item, quantity: 1 });
+    //     }
+
+    //     updateCartTotals(state);
+    //     localStorage.setItem("cart", JSON.stringify(state));
+    //   } catch (err) {
+    //     console.error("Error adding to cart:", err);
+    //     setError("Something went wrong while adding the item to the cart.");
+    //   }
+    // },
     addToCart: (state, action) => {
-      const item = action.payload;
-      const existingItem = state.cartItems.find((i) => i.id === item.id);
+  try {
+    const item = action.payload;
+    if (!item.id) {
+      throw new Error("Invalid product — missing ID");
+    }
 
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        state.cartItems.push({ ...item, quantity: 1 });
-      }
+    const existingItem = state.cartItems.find((i) => i.id === item.id);
 
-      updateCartTotals(state);
-      localStorage.setItem("cart", JSON.stringify(state));
-    },
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      state.cartItems.push({ ...item, quantity: 1 });
+    }
+
+    updateCartTotals(state);
+    localStorage.setItem("cart", JSON.stringify(state));
+  } catch (error) {
+    console.error(error);
+    action.asyncDispatch(setError(error.message)); // custom async dispatch
+  }
+},
+
 
     removeFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter((i) => i.id !== action.payload);
@@ -65,7 +94,7 @@ const cartSlice = createSlice({
         item.quantity += 1;
       }
       updateCartTotals(state);
-      localStorage.setItem("Cart", JSON.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
 
     decreaseQuantity: (state, action) => {
@@ -85,5 +114,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  increaseQuantity,
+  decreaseQuantity,
+} = cartSlice.actions;
 export default cartSlice.reducer;

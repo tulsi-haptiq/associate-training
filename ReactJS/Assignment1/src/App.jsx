@@ -3,10 +3,12 @@ import "./App.css";
 import HeroSection from "./components/HeroSection";
 import FeatureSection from "./components/FeatureSection";
 import CategorySection from "./components/CategorySection";
+import GlobalError from "./components/GlobalError";
 
 function App() {
   return (
     <div className="bg-black w-full ">
+      <GlobalError />
       <HeroSection />
       <FeatureSection />
       <CategorySection />

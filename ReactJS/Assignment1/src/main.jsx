@@ -7,21 +7,24 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PublicLayout from "./layouts/PublicLayout.jsx";
 import CategoryProducts from "./pages/CategoryProducts.jsx";
-import Products from "./pages/Products.jsx";
 import WishlistProvider from "./context/WishlistContext";
 import Wishlist from "./pages/Wishlist.jsx";
 import { Provider } from "react-redux";
+import Products from "./pages/Products.jsx";
 import store from "./redux/store";
 import Cart from "./pages/Cart.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import SearchResults from "./pages/SearchResults.jsx";
 import CheckOut from "./pages/CheckOut.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
+import CustomErrorPage from "./components/CustomErrorPage.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <PublicLayout />,
+    errorElement: <CustomErrorPage />,
     children: [
       {
         path: "/",
@@ -51,10 +54,6 @@ const router = createBrowserRouter([
         path: "/search",
         element: <SearchResults />,
       },
-      // {
-      //   path: "/auth",
-      //   element: <SignUp />,
-      // },
       {
         path: "/checkout",
         element: <CheckOut />,
@@ -71,8 +70,10 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <WishlistProvider>
-        <RouterProvider router={router} />
-        <ToastContainer position="bottom-right" autoClose={2000} />
+        <ErrorBoundary>
+          <RouterProvider router={router} />
+          <ToastContainer position="bottom-right" autoClose={2000} />
+        </ErrorBoundary>
       </WishlistProvider>
     </Provider>
   </StrictMode>
