@@ -18,8 +18,14 @@ try {
 
 // ✅ Helper function to recalculate totals
 const updateCartTotals = (state) => {
-  state.totalItem = state.cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  state.totalPrice = state.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  state.totalItem = state.cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
+  state.totalPrice = state.cartItems.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
 };
 
 const cartSlice = createSlice({
@@ -52,8 +58,32 @@ const cartSlice = createSlice({
       updateCartTotals(state); // Sets totalItem and totalPrice to 0
       localStorage.setItem("cart", JSON.stringify(state));
     },
+
+    increaseQuantity: (state, action) => {
+      const item = state.cartItems.find((i) => i.id === action.payload);
+      if (item) {
+        item.quantity += 1;
+      }
+      updateCartTotals(state);
+      localStorage.setItem("Cart", JSON.stringify(state));
+    },
+
+    decreaseQuantity: (state, action) => {
+      const item = state.cartItems.find((i) => i.id === action.payload);
+      if (item) {
+        if (item.quantity > 1) {
+          item.quantity += 1;
+        } else {
+          state.cartItems = state.cartItems.filter(
+            (i) => i.id !== action.payload
+          );
+        }
+      }
+      updateCartTotals(state);
+      localStorage.setItem("cart", JSON.stringify(state));
+    },
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

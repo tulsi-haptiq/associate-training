@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import ShadowBtn from "../components/ShadowBtn";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { increaseQuantity, decreaseQuantity } from "../redux/slice/cartSlice";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ export default function Cart() {
   const { cartItems, totalItem, totalPrice } = useSelector(
     (state) => state.cart
   );
+  const dispatch = useDispatch();
 
   const handleCheckout = () => {
     if (!user) {
@@ -43,9 +46,22 @@ export default function Cart() {
                   showAddToCart={false}
                   showRemoveButton={true}
                 />
-                <div className="pt-3 text-sm text-gray-300">
-                  <span className="font-semibold">Quantity:</span>{" "}
-                  {item.quantity}
+
+                <div className="pt-3 text-sm text-gray-300 flex items-center gap-2">
+                  <span className="font-semibold">Quantity:</span>
+                  <button
+                    onClick={() => dispatch(decreaseQuantity(item.id))}
+                    className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-400"
+                  >
+                    -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                    onClick={() => dispatch(increaseQuantity(item.id))}
+                    className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-400"
+                  >
+                    +
+                  </button>
                 </div>
               </div>
             ))}
