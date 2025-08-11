@@ -6,7 +6,7 @@ import CategorySection from "./components/CategorySection";
 
 function App() {
   return (
-    <div className="bg-black w-full">
+    <div className="bg-black w-full ">
       <HeroSection />
       <FeatureSection />
       <CategorySection />

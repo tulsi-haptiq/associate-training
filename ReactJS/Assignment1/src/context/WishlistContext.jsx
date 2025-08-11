@@ -24,15 +24,20 @@ export default function WishlistProvider({ children }) {
     }
   };
 
+  const removeFromWishlist = (id) => {
+    setWishlist(wishlist.filter((item) => item.id !== id));
+  };
+
   const isInwishlist = (id) => {
     return wishlist.some((item) => item.id === id);
   };
 
   return (
     <WishlistContext.Provider
-      value={{ wishlist, toggleWishlist, isInwishlist }}
+      value={{ wishlist, toggleWishlist, isInwishlist, removeFromWishlist }}
     >
       {children}
     </WishlistContext.Provider>
   );
 }
+

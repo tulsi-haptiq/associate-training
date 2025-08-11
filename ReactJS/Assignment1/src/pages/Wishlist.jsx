@@ -27,7 +27,7 @@ export default function Wishlist() {
                 key={item.id}
                 className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col transition hover:scale-105 duration-300"
               >
-                <Card item={item} />
+                <Card item={item} showAddToCart={true} isWishlistPage={true} />
               </div>
             ))}
           </div>

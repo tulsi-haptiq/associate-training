@@ -25,7 +25,7 @@ export default function Cart() {
   };
 
   return (
-    <div className="p-4 sm:p-6 container mx-auto max-w-7xl ">
+    <div className="p-4 sm:p-6 container mx-auto max-w-7xl  ">
       <ShadowBtn title="My Cart" />
 
       {cartItems.length === 0 ? (

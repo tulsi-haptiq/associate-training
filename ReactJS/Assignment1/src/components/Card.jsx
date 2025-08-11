@@ -10,6 +10,7 @@ export default function Card({
   item,
   showAddToCart = true,
   showRemoveButton = false,
+  isWishlistPage = false,
 }) {
   const { toggleWishlist, isInwishlist } = useContext(WishlistContext);
   const isWished = isInwishlist(item.id);
@@ -41,7 +42,8 @@ export default function Card({
       </div>
 
       <div className="flex items-center justify-between gap-3 mt-auto">
-        {showAddToCart && <AddToCart item={item} />}
+        {showAddToCart && <AddToCart item={item} isWishlistPage={isWishlistPage} />}
+
 
         {showRemoveButton && (
           <button
